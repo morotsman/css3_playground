@@ -1,0 +1,22 @@
+#color_change_div {
+    width:100px;
+    height:100px;
+    background:red;
+    animation:red_to_yellow 10s;
+    -webkit-animation:red_to_yellow 10s; /* Safari and Chrome */   
+}
+
+
+@keyframes red_to_yellow
+{
+from {background:red;}
+to {background:yellow;}
+}
+
+@-webkit-keyframes red_to_yellow /* Safari and Chrome */
+{
+from {background:red;}
+to {background:yellow;}
+}
+
+/****End color change*****/
