@@ -31,33 +31,28 @@ to {background:yellow;}
 
 #color_change_div_with_procent {
     background:red;
-    animation:color_shift 5s;
+    animation:color_shift 10s;
     animation-iteration-count: infinite;
-    -webkit-animation:color_shift 5s; /* Safari and Chrome */   
+    -webkit-animation:color_shift 10s; /* Safari and Chrome */   
 }
 
 
 @keyframes color_shift {
-0%   {background:red;}
-25%  {background:yellow;}
-50%  {background:blue;}
-100% {background:green;}
+0%   {background:#686868 ;}
+100% {background:#FFFFFF;}
 }
 
 /* Safari and Chrome */
 @-webkit-keyframes color_shift {
-0%   {background:red;}
-25%  {background:yellow;}
-50%  {background:blue;}
-100% {background:green;}
+0%   {background:#686868 ;}
+100% {background:#FFFFFF;}
 }
 
 /****End color change*****/
 
 /****End color change*****/
 
-
-#fade_in_div {
+.fade_in {
     opacity:0;
     animation:invisible_to_visible 5s;
     animation-iteration-count: infinite;
@@ -78,7 +73,7 @@ to {opacity:1.0;}
 
 /*  end fade in  */
 
-#fade_out_div {
+.fade_out {
     opacity:1.0;
     animation:visible_to_invisible 5s;
     animation-iteration-count: infinite;
@@ -109,6 +104,7 @@ to {opacity:0;}
 .moving_around {
 position:relative;
 animation:moving_around_animation 5s infinite;
+animation-direction: alternate;
 -webkit-animation:moving_around_animation 5s infinite; /* Safari and Chrome */    
 }
 
@@ -148,4 +144,46 @@ animation-timing-function:linear;
 @-webkit-keyframes scroll_text_animation {
 0% {left:200px; top:0px;}
 100%   {left:0px; top:0px;}
+}
+
+/* end scroll*/
+
+.change_font_size {
+font-size:100%;
+animation:change_font_size_animation 5s infinite;
+
+-webkit-animation:change_font_size_animation 5s infinite; /* Safari and Chrome */    
+}
+
+@keyframes change_font_size_animation{
+0% {font-size:100%;}
+100%   {font-size:200%;}
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes change_font_size_animation {
+0% {font-size:100%;}
+100%   {font-size:300%;}
+}
+
+/* end change font*/
+
+
+.text_puff {
+font-size:100%;
+animation:text_puff_animation 5s infinite;
+position:absolute;
+text-shadow: 2px 2px #888888;
+-webkit-animation:text_puff_animation 5s infinite; /* Safari and Chrome */    
+}
+
+@keyframes text_puff_animation{
+0% {font-size:100%;opacity:1.0;}
+100%   {font-size:1000%;opacity:0;}
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes text_puff_animation {
+0% {font-size:100%;opacity:1.0}
+100%   {font-size:1000%;opacity:0;}
 }
