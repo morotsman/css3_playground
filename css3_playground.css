@@ -188,3 +188,53 @@ text-shadow: 2px 2px #888888;
 0% {font-size:100%;opacity:1.0}
 100%   {font-size:1000%;opacity:0;}
 }
+
+
+/****************** Transitions ***************/
+
+.hover {   
+    transition:width 2s, height 2s;
+    -webkit-transition:width 2s, height 2s; /* Safari */
+}
+
+.hover:hover {
+    width:300px;
+    height:300px;
+}
+
+.mouse_down {   
+    transition:width 2s, height 2s;
+    -webkit-transition:width 2s, height 2s; /* Safari */
+}
+
+.mouse_down:active {
+    width:300px;
+    height:300px;
+}
+
+
+.rotate {
+    
+    /* Firefox */
+    -moz-transition: all 5s ease;
+    /* WebKit */
+    -webkit-transition: all 5s ease;
+    /* Opera */
+    -o-transition: all 5s ease;
+    /* Standard */
+    transition: all 5s ease;
+    
+}
+
+.rotate:active {
+    opacity: 1;
+    /* Firefox */
+    -moz-transform: rotate(360deg);
+    /* WebKit */
+    -webkit-transform: rotate(360deg);
+    /* Opera */
+    -o-transform: rotate(360deg);
+    /* Standard */
+    transform: rotate(360deg);
+    z-index: 1000;
+}
