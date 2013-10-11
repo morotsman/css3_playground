@@ -150,6 +150,7 @@ animation-timing-function:linear;
 
 .change_font_size {
 font-size:100%;
+position:absolute;
 animation:change_font_size_animation 5s infinite;
 
 -webkit-animation:change_font_size_animation 5s infinite; /* Safari and Chrome */    
@@ -157,13 +158,13 @@ animation:change_font_size_animation 5s infinite;
 
 @keyframes change_font_size_animation{
 0% {font-size:100%;}
-100%   {font-size:200%;}
+100%   {font-size:500%;}
 }
 
 /* Safari and Chrome */
 @-webkit-keyframes change_font_size_animation {
 0% {font-size:100%;}
-100%   {font-size:300%;}
+100%   {font-size:500%;}
 }
 
 /* end change font*/

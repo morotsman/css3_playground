@@ -4,45 +4,65 @@
 		<title>CSS3 Playground</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" media="all" href="css3_playground.css" />
+                <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+                <script src="external/jquery.min.js"></script>
+                <script src="external/jquery-ui.js"></script>
+                <script>
+                   $(function() {
+                       $( "#tabs" ).tabs();
+                   });
+                </script>
 
 	</head>
-        <span class="scroll_text">Some scrolling text</span>
-            <table>
-                <tr>
-                    <td>
-                        <div id="color_change_div_with_procent" class="demo_div">Change color</div>
-                    </td>
-                    <td>
-                       <div class="fade_in demo_div">Fading in</div>
-                    </td>
-                    <td>
-                        <div  class="demo_div fade_out">Fading out</div>
-                    </td>
-                    <td>
-                        <div class="with_box_shadow demo_div">Box shadow</div>
-                    </td>
-                </tr>
-                <tr>
-                    
-                    <td>
-                        <span class="moving_around">Moving</span>
-                    </td>
-                    <td>
-                        
-                    </td>
+        <body>
+            <div id="tabs">
+                 <ul>
+                    <li><a href="#basic_animations">Basic Animations</a></li>
+                    <li><a href="#3d">3d</a></li>
+                </ul>
+                <div id="basic_animations" style="width:800px; height:500px">
+                    <span class="scroll_text">SCROLL</span>
+                    <table>
+                        <tr>
+                            <td>
+                                <div id="color_change_div_with_procent" class="demo_div">Color</div>
+                            </td>
+                            <td>
+                               <div class="fade_in demo_div">Fading in</div>
+                            </td>
+                            <td>
+                                <div  class="demo_div fade_out">Fading out</div>
+                            </td>
+                            <td>
+                                <div class="with_box_shadow demo_div">Shadow</div>
+                            </td>
+                        </tr>
+                        <tr>
 
-                    <td>
-                    <td>
-                    <td>
-                        <span class="text_puff">Puff</span>    
-                    </td>
-                </tr>
-                <tr>
-                                        <td>
-                        <span class="change_font_size">Resize</span>    
-                    </td>
-                </tr>
-            </table>
+                            <td>
+                                <span class="moving_around">Move</span>
+                            </td>
+                            <td>
+
+                            </td>
+
+                            <td>
+                            <td>
+                            <td>
+                                <span class="text_puff">Puff</span>    
+                            </td>
+                        </tr>
+                        <tr>
+                                                <td>
+                                <span class="change_font_size">Resize</span>    
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="3d" style="width:800px; height:500px>
+                </div>
+            </div>
+            
             
 	</body>
 </html>
