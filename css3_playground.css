@@ -230,3 +230,88 @@ text-shadow: 2px 2px #888888;
     transform: scale(2) rotate(359deg);
     z-index: 1000;
 }
+
+
+/* card flip*/
+
+#card_container {
+  position: relative;
+  margin: 10px auto;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+  perspective: 1000;
+}
+
+
+#card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 1.0s linear;
+}
+#card_container:active #card {
+  transform: rotateY(180deg);
+}
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  
+}
+.face.back { 
+  transform: rotateY(180deg);
+}
+
+
+.face > p {
+    margin-top: 0px; margin-bottom: 0px;
+}
+
+/*end card flip*/
+
+/* click with flip*/
+
+#click_card_container {
+  position: relative;
+  margin: 10px auto;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+  perspective: 1000;
+}
+
+.click_card_front {}
+
+.click_card_back {
+     
+}
+
+#click_card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 1.0s linear;
+}
+.click_card_back #click_card {
+  transform: rotateY(180deg);
+}
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  
+}
+.face.back { 
+  transform: rotateY(180deg);
+}
+
+
+
+
+
+*/
+
+/* end click with flip*/
