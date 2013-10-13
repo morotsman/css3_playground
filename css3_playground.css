@@ -279,7 +279,6 @@ text-shadow: 2px 2px #888888;
   width: 100px;
   height: 100px;
   z-index: 1;
-  perspective: 1000;
 }
 
 .click_card_front {}
@@ -309,9 +308,66 @@ text-shadow: 2px 2px #888888;
 }
 
 
+/* end click with flip*/
+
+/* rotate and fade */
+
+#rotate_and_fade_container {
+  position: relative;
+  left:100px;
+  margin: 10px auto;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+}
+
+#div1{
+  left:20px;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 1.0s linear;
+}
+
+#rotate_and_fade_container:active #div1 {
+  transform: rotateY(60deg) translate(-40px,0px);
+  opacity: 0;
+}
+
+#div2{
+  left:100px;
+  transform: rotateY(-60deg);
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 1.0s linear;
+}
+
+#rotate_and_fade_container:active #div2 {
+  transform: rotateY(0deg) translate(-20px,0px);
+  opacity: 1.0;
+}
+
+/*
+#rotate_and_fade_container:active #rotate_and_fade {
+  transform: rotateY(60deg) translate(-200px,0px);
+  opacity: 0;
+  left : 200px;
+}
 
 
 
+#rotate_and_fade .face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  
+}
+#rotate_and_fade .face.back { 
+  transform: rotateY(-60deg);
+}
 */
 
-/* end click with flip*/
+/* end rotate and fade */
