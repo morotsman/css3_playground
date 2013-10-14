@@ -312,62 +312,80 @@ text-shadow: 2px 2px #888888;
 
 /* rotate and fade */
 
-#rotate_and_fade_container {
-  position: relative;
-  left:100px;
-  margin: 10px auto;
-  width: 100px;
-  height: 100px;
-  z-index: 1;
+.cube_wrap {
+	perspective: 800px;
+	perspective-origin: 50% 100px;
 }
 
-#div1{
-  left:20px;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: all 1.0s linear;
+.cube {
+	position: relative;
+	width: 100px;
+	transform-style: preserve-3d;
+        animation: spin 5s infinite linear;
 }
 
-#rotate_and_fade_container:active #div1 {
-  transform: rotateY(60deg) translate(-40px,0px);
-  opacity: 0;
+.cube div {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+        line-height: 100px;
+        border:1px solid;
+        text-align: center;
+        margin:0px;
 }
 
-#div2{
-  left:100px;
-  transform: rotateY(-60deg);
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: all 1.0s linear;
+.cube_back {
+	transform: translateZ(-50px) rotateY(180deg);
+}
+.cube_right {
+	transform: rotateY(-270deg) translateX(50px);
+	transform-origin: top right;
+}
+.cube_left {
+	transform: rotateY(270deg) translateX(-50px);
+	transform-origin: center left;
+}
+.cube_top {
+	transform: rotateX(-90deg) translateY(-50px);
+	transform-origin: top center;
+}
+.cube_bottom {
+	transform: rotateX(90deg) translateY(50px);
+	transform-origin: bottom center;
+}
+.cube_front {
+	transform: translateZ(50px);
 }
 
-#rotate_and_fade_container:active #div2 {
-  transform: rotateY(0deg) translate(-20px,0px);
-  opacity: 1.0;
-}
-
-/*
-#rotate_and_fade_container:active #rotate_and_fade {
-  transform: rotateY(60deg) translate(-200px,0px);
-  opacity: 0;
-  left : 200px;
+@keyframes spin {
+	from { transform: rotateY(0); }
+	to { transform: rotateY(360deg); }
 }
 
 
+.cube2 {
+	position: relative;
+	width: 100px;
+	transform-style: preserve-3d;
+        animation: spin2 5s infinite linear;
+}
 
-#rotate_and_fade .face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  
+.cube2 div {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+        line-height: 100px;
+        border:1px solid;
+        text-align: center;
+        margin:0px;
 }
-#rotate_and_fade .face.back { 
-  transform: rotateY(-60deg);
+
+@keyframes spin2 {
+	from { transform: rotateY(0) rotateX(0deg); }
+	to { transform: rotateY(360deg) rotateX(360deg); }
 }
-*/
+
+
+
 
 /* end rotate and fade */
