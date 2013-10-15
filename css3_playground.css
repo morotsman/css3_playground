@@ -389,3 +389,55 @@ text-shadow: 2px 2px #888888;
 
 
 /* end rotate and fade */
+
+/*rotate and fade*/
+
+#rotate_and_fade_wrap {
+	perspective: 800px;
+	perspective-origin: 50% 50px;
+}
+
+#rotate_and_fade {
+	position: relative;
+	width: 100px;
+	transform-style: preserve-3d;
+ 
+}
+
+#rotate_and_fade div {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+        line-height: 100px;
+        border:1px solid;
+        text-align: center;
+        margin:0px;
+        transform-style: preserve-3d;
+        transition: all 1.0s linear;
+}
+
+.rotate_and_fade_invisible {
+        opacity : 0;
+        transform: rotateY(-120deg) translateX(200px) translateZ(-220px);
+}
+
+.rotate_and_fade_disappear {
+        transform:  rotateY(120deg) translateX(-200px) translateZ(-220px);
+        opacity : 0;
+}
+
+.rotate_and_fade_previous {
+	transform: rotateY(60deg) translateX(-200px);
+        opacity : 0.3;
+}
+.rotate_and_fade_current {
+	transform: rotateY(0deg);
+        opacity : 1;
+}
+.rotate_and_fade_next {
+	transform: rotateY(-60deg)  translateX(200px);
+        opacity : 0.3;
+}
+
+
+/*end rotate and fade*/

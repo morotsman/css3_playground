@@ -11,20 +11,95 @@
                    $(function() {
                        $( "#tabs" ).tabs();
                        
-                       var counter = 1;
-                       $("#flip_with_click").on("click", function(){                 
-                            if(counter % 2===0){
-                                $(this).removeClass("click_card_back");
-                                $(this).addClass("click_card_front");
-                                $("#click_front").html("Click: " + (counter+1));
-                            }else{
-                                $(this).removeClass("click_card_front");
-                                $(this).addClass("click_card_back");
-                                $("#click_back").html("Click: " + (counter+1));
-                            }
-                            counter++;
-                            
-                       });
+                       (function(){
+                           var counter = 1;
+                           
+                           return function(){
+                                $("#flip_with_click").on("click", function(){                 
+                                    if(counter % 2===0){
+                                        $(this).removeClass("click_card_back");
+                                        $(this).addClass("click_card_front");
+                                        $("#click_front").html("Click: " + (counter + 1));
+                                    } else {
+                                        $(this).removeClass("click_card_front");
+                                        $(this).addClass("click_card_back");
+                                        $("#click_back").html("Click: " + (counter + 1));
+                                    }
+                                    counter++;
+
+                                });
+                           };
+                        }())();
+                        
+                        (function(){
+                           var counter = 0;
+                           
+                           $("#rotate_and_fade").children().uniqueId();
+                           var divs = $("#rotate_and_fade").children().map(function (){
+                               return {
+                                   id : this.id,
+                                   text: $(this).text()
+                               };
+                               
+                           }).get();
+                           
+                           $.each(divs, function(){
+                               $("#" + this.id).addClass("rotate_and_fade_invisible");
+                           });
+                           
+                           if(divs.length > 0){
+                               $("#" +divs[0].id).addClass("rotate_and_fade_current");
+                           }
+                           
+                           if(divs.length > 1){
+                               $("#" +divs[1].id).addClass("rotate_and_fade_next");
+                           }
+                           
+                           return function(){
+                                               
+                                     $("#rotate_and_fade_wrap").on("click", function(){  
+                                         
+                                         
+                                         if(divs.length < 1){
+                                             return;
+                                         }
+                                         if(counter > 0 && counter < divs.length+1){
+                                            var prevDiv = divs[(counter - 1)];
+                                            var $prevDiv = $("#" + prevDiv.id);
+                                            $prevDiv.html(prevDiv.text);
+                                            $prevDiv.removeClass("rotate_and_fade_previous");
+                                            $prevDiv.addClass("rotate_and_fade_disappear");
+                                         }
+                                         
+                                         if(counter < divs.length){
+                                            var currentDiv = divs[counter];
+                                            var $currentDiv = $("#" + currentDiv.id);
+                                            $currentDiv.html(currentDiv.text);         
+                                            $currentDiv.removeClass("rotate_and_fade_current");
+                                            $currentDiv.addClass("rotate_and_fade_previous");
+                                         }
+                                         
+                                         if(counter < divs.length-1){
+                                            var nextDiv = divs[(counter+1)];
+                                            var $nextDiv = $("#" + nextDiv.id);
+                                            $nextDiv.html(nextDiv.text);    
+                                            $nextDiv.addClass("rotate_and_fade_current");
+                                            $nextDiv.removeClass("rotate_and_fade_next");
+                                         }
+                                         if(counter < divs.length-2){
+                                            var nextNextDiv = divs[(counter+2)];
+                                            var $nextNextDiv = $("#" + nextNextDiv.id);
+                                            $nextNextDiv.html(nextNextDiv.text);
+                                            $nextNextDiv.addClass("rotate_and_fade_next");
+                                            $nextNextDiv.removeClass("rotate_and_fade_invisible");
+                                         }
+       
+                                         
+                                         counter++;
+                                     });
+                                
+                           };
+                        }())();                       
                     });
                 </script>
 
@@ -147,6 +222,29 @@
                                             <div class="cube_bottom">bottom</div>
                                             <div class="cube_left">left</div>
                                             <div class="cube_right">right</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="margin-left: 200px; margin-top: 50px">
+                                    <div id="rotate_and_fade_wrap">
+                                        <div id="rotate_and_fade">
+                                            <div>Div 1</div>
+                                            <div>Div 2</div>
+                                            <div>Div 3</div>               
+                                            <div>Div 4</div>
+                                            <div>Div 5</div>
+                                            <div>Div 6</div>
+                                            <div>Div 7</div>
+                                            <div>Div 8</div>
+                                            <div>Div 9</div>               
+                                            <div>Div 10</div>
+                                            <div>Div 11</div>
+                                            <div>The End</div>
+                                           
                                         </div>
                                     </div>
                                 </div>
