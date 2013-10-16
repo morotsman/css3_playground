@@ -242,6 +242,7 @@ text-shadow: 2px 2px #888888;
   height: 100px;
   z-index: 1;
   perspective: 1000;
+  -webkit-perspective: 1000;
 }
 
 
@@ -249,7 +250,9 @@ text-shadow: 2px 2px #888888;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   transition: all 1.0s linear;
+  -webkit-transition: all 1.0s linear;
 }
 #card_container:active #card {
   transform: rotateY(180deg);
@@ -295,7 +298,9 @@ text-shadow: 2px 2px #888888;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
+  -webkit-transform-style:preserve-3d; 
   transition: all 1.0s linear;
+  -webkit-transition: all 1.0s linear;
 }
 .click_card_back #click_card {
   transform: rotateY(180deg);
