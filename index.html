@@ -1,263 +1,275 @@
 <!doctype html>
 <html lang="en" class="ng-app">
-	<head>
-		<title>CSS3 Playground</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" media="all" href="css3_playground.css" />
-                <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
-                <script src="external/jquery.min.js"></script>
-                <script src="external/jquery-ui.js"></script>
-                <script>
-                   $(function() {
-                       $( "#tabs" ).tabs();
-                       
-                       (function(){
-                           var counter = 1;
-                           
-                           return function(){
-                                $("#flip_with_click").on("click", function(){                 
-                                    if(counter % 2===0){
-                                        $(this).removeClass("click_card_back");
-                                        $(this).addClass("click_card_front");
-                                        $("#click_front").html("Click: " + (counter + 1));
-                                    } else {
-                                        $(this).removeClass("click_card_front");
-                                        $(this).addClass("click_card_back");
-                                        $("#click_back").html("Click: " + (counter + 1));
-                                    }
-                                    counter++;
+    <head>
+        <title>CSS3 Playground</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" media="all" href="css3_playground.css" />
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+        <script src="external/jquery.min.js"></script>
+        <script src="external/jquery-ui.js"></script>
+        <script>
+            $(function() {
+                $("#tabs").tabs();
 
-                                });
-                           };
-                        }())();
-                        
-                        (function(){
-                           var counter = 0;
-                           
-                           $("#rotate_and_fade").children().uniqueId();
-                           var divs = $("#rotate_and_fade").children().map(function (){
-                               return {
-                                   id : this.id,
-                                   text: $(this).text()
-                               };
-                               
-                           }).get();
-                           
-                           $.each(divs, function(){
-                               $("#" + this.id).addClass("rotate_and_fade_invisible");
-                           });
-                           
-                           if(divs.length > 0){
-                               $("#" +divs[0].id).addClass("rotate_and_fade_current");
-                           }
-                           
-                           if(divs.length > 1){
-                               $("#" +divs[1].id).addClass("rotate_and_fade_next");
-                           }
-                           
-                           return function(){
-                                               
-                                     $("#rotate_and_fade_wrap").on("click", function(){  
-                                         
-                                         
-                                         if(divs.length < 1){
-                                             return;
-                                         }
-                                         if(counter > 0 && counter < divs.length+1){
-                                            var prevDiv = divs[(counter - 1)];
-                                            var $prevDiv = $("#" + prevDiv.id);
-                                            $prevDiv.html(prevDiv.text);
-                                            $prevDiv.removeClass("rotate_and_fade_previous");
-                                            $prevDiv.addClass("rotate_and_fade_disappear");
-                                         }
-                                         
-                                         if(counter < divs.length){
-                                            var currentDiv = divs[counter];
-                                            var $currentDiv = $("#" + currentDiv.id);
-                                            $currentDiv.html(currentDiv.text);         
-                                            $currentDiv.removeClass("rotate_and_fade_current");
-                                            $currentDiv.addClass("rotate_and_fade_previous");
-                                         }
-                                         
-                                         if(counter < divs.length-1){
-                                            var nextDiv = divs[(counter+1)];
-                                            var $nextDiv = $("#" + nextDiv.id);
-                                            $nextDiv.html(nextDiv.text);    
-                                            $nextDiv.addClass("rotate_and_fade_current");
-                                            $nextDiv.removeClass("rotate_and_fade_next");
-                                         }
-                                         if(counter < divs.length-2){
-                                            var nextNextDiv = divs[(counter+2)];
-                                            var $nextNextDiv = $("#" + nextNextDiv.id);
-                                            $nextNextDiv.html(nextNextDiv.text);
-                                            $nextNextDiv.addClass("rotate_and_fade_next");
-                                            $nextNextDiv.removeClass("rotate_and_fade_invisible");
-                                         }
-       
-                                         
-                                         counter++;
-                                     });
-                                
-                           };
-                        }())();                       
+                (function() {
+                    var counter = 1;
+
+                    return function() {
+                        $("#flip_with_click").on("click", function() {
+                            if (counter % 2 === 0) {
+                                $(this).removeClass("click_card_back");
+                                $(this).addClass("click_card_front");
+                                $("#click_front").html("Click: " + (counter + 1));
+                            } else {
+                                $(this).removeClass("click_card_front");
+                                $(this).addClass("click_card_back");
+                                $("#click_back").html("Click: " + (counter + 1));
+                            }
+                            counter++;
+
+                        });
+                    };
+                }())();
+
+                (function() {
+                    var counter = 0;
+
+                    $("#rotate_and_fade").children().uniqueId();
+                    var divs = $("#rotate_and_fade").children().map(function() {
+                        return {
+                            id: this.id,
+                            text: $(this).text()
+                        };
+
+                    }).get();
+
+                    $.each(divs, function() {
+                        $("#" + this.id).addClass("rotate_and_fade_invisible");
                     });
-                </script>
 
-	</head>
-        <body>
-            <div id="tabs">
-                 <ul>
-                    <li><a href="#basic_animations">Basic Animations</a></li>
-                    <li><a href="#transition">Transition</a></li>
-                    <li><a href="#3d">3D</a></li>
-                    <li><a href="#border">Border</a></li>
-                </ul>
-                <div id="basic_animations" style="width:800px; height:500px">
-                    <span class="scroll_text">SCROLL</span>
-                    <table>
-                        <tr>
-                            <td>
-                                <div id="color_change_div_with_procent" class="demo_div">Color</div>
-                            </td>
-                            <td>
-                               <div class="fade_in demo_div">Fading in</div>
-                            </td>
-                            <td>
-                                <div  class="demo_div fade_out">Fading out</div>
-                            </td>
+                    if (divs.length > 0) {
+                        $("#" + divs[0].id).addClass("rotate_and_fade_current");
+                    }
 
-                        </tr>
-                        <tr>
+                    if (divs.length > 1) {
+                        $("#" + divs[1].id).addClass("rotate_and_fade_next");
+                    }
 
-                            <td>
-                                <span class="moving_around">Move</span>
-                            </td>
-                            <td>
+                    return function() {
 
-                            </td>
-                            <td>
-                                <span class="text_puff">Puff</span>    
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="change_font_size">Resize</span>    
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div id="transition" style="width:800px; height:500px">
-                    <table>
-                        <tr>
-                            <td>
-                                <div class="mouse_down demo_div">Press</div>
-                            </td>
-                            <td>
-                                <div class="hover demo_div">Hover</div>
-                            </td>
-                            
-                            <td>
-                                <div class="rotate demo_div">Press</div>
-                            </td>
-                            
-                        </tr>
-                    </table>
-                </div>
-                <div id="3d" style="width:800px; height:500px">
-                    <table>
-                        
-                        <tr>
-                            <td>
-                                <div id="card_container">
-                                    <div id="card" class="demo_div">
-                                        <div class="front face">
-                                            <p>Press</p>
-                                        </div>
-                                        <div class="back face">
-                                            <p>Release</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div id="flip_with_click" >
-                                    <div id="click_card_container">
-                                        <div id="click_card" class="demo_div">
-                                            <div class="front face" style="line-height:50px">
-                                                <p>Front<p>
-                                                <p id="click_front">Click: 1<p>
-                                            </div> 
-                                            <div class="back face" style="line-height:50px">
-                                                <p>Back<p>
-                                                <p id="click_back">Click: 2<p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                           
-                            
-                            
-                            <td>
-                                <div style="margin-left: 30px;">
-                                    <div class="cube_wrap">
-                                        <div class="cube">
-                                            <div class="cube_front">front</div>
-                                            <div class="cube_back">back</div>
-                                            <div class="cube_top">top</div>
-                                            <div class="cube_bottom">bottom</div>
-                                            <div class="cube_left">left</div>
-                                            <div class="cube_right">right</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div style="margin-left: 50px;">
-                                    <div class="cube_wrap">
-                                        <div class="cube2">
-                                            <div class="cube_front">front</div>
-                                            <div class="cube_back">back</div>
-                                            <div class="cube_top">top</div>
-                                            <div class="cube_bottom">bottom</div>
-                                            <div class="cube_left">left</div>
-                                            <div class="cube_right">right</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div style="margin-left: 200px; margin-top: 50px">
-                                    <div id="rotate_and_fade_wrap">
-                                        <div id="rotate_and_fade">
-                                            <div>Div 1</div>
-                                            <div>Div 2</div>
-                                            <div>Div 3</div>               
-                                            <div>Div 4</div>
-                                            <div>Div 5</div>
-                                            <div>Div 6</div>
-                                            <div>Div 7</div>
-                                            <div>Div 8</div>
-                                            <div>Div 9</div>               
-                                            <div>Div 10</div>
-                                            <div>Div 11</div>
-                                            <div>The End</div>
-                                           
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                           
-                            </tr>
-                    </table>
-                </div>
-                <div id="border" style="width:800px; height:500px">
-                    <div class="with_box_shadow demo_div">Shadow</div>        
-                </div>
+                        $("#rotate_and_fade_wrap").on("click", function() {
+
+
+                            if (divs.length < 1) {
+                                return;
+                            }
+                            if (counter > 0 && counter < divs.length + 1) {
+                                var prevDiv = divs[(counter - 1)];
+                                var $prevDiv = $("#" + prevDiv.id);
+                                $prevDiv.html(prevDiv.text);
+                                $prevDiv.removeClass("rotate_and_fade_previous");
+                                $prevDiv.addClass("rotate_and_fade_disappear");
+                            }
+
+                            if (counter < divs.length) {
+                                var currentDiv = divs[counter];
+                                var $currentDiv = $("#" + currentDiv.id);
+                                $currentDiv.html(currentDiv.text);
+                                $currentDiv.removeClass("rotate_and_fade_current");
+                                $currentDiv.addClass("rotate_and_fade_previous");
+                            }
+
+                            if (counter < divs.length - 1) {
+                                var nextDiv = divs[(counter + 1)];
+                                var $nextDiv = $("#" + nextDiv.id);
+                                $nextDiv.html(nextDiv.text);
+                                $nextDiv.addClass("rotate_and_fade_current");
+                                $nextDiv.removeClass("rotate_and_fade_next");
+                            }
+                            if (counter < divs.length - 2) {
+                                var nextNextDiv = divs[(counter + 2)];
+                                var $nextNextDiv = $("#" + nextNextDiv.id);
+                                $nextNextDiv.html(nextNextDiv.text);
+                                $nextNextDiv.addClass("rotate_and_fade_next");
+                                $nextNextDiv.removeClass("rotate_and_fade_invisible");
+                            }
+
+
+                            counter++;
+                        });
+
+                    };
+                }())();
+                
+                $(".ripable").on("click", function(){
+                    $(this).addClass("rip");
+                });
+            });
+            
+            
+        </script>
+
+    </head>
+    <body>
+        <div id="tabs">
+            <ul>
+                <li><a href="#basic_animations">Basic Animations</a></li>
+                <li><a href="#transition">Transition</a></li>
+                <li><a href="#3d">3D</a></li>
+                <li><a href="#border">Border</a></li>
+            </ul>
+            <div id="basic_animations" style="width:800px; height:500px">
+                <span class="scroll_text">SCROLL</span>
+                <table>
+                    <tr>
+                        <td>
+                            <div id="color_change_div_with_procent" class="demo_div">Color</div>
+                        </td>
+                        <td>
+                            <div class="fade_in demo_div">Fading in</div>
+                        </td>
+                        <td>
+                            <div  class="demo_div fade_out">Fading out</div>
+                        </td>
+
+                    </tr>
+                    <tr>
+
+                        <td>
+                            <span class="moving_around">Move</span>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+                            <span class="text_puff">Puff</span>    
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="change_font_size">Resize</span>    
+                        </td>
+                    </tr>
+                </table>
             </div>
-            
-            
-	</body>
+            <div id="transition" style="width:800px; height:500px">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="mouse_down demo_div">Press</div>
+                        </td>
+                        <td>
+                            <div class="hover demo_div">Hover</div>
+                        </td>
+
+                        <td>
+                            <div class="rotate demo_div">Press</div>
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+            <div id="3d" style="width:800px; height:500px">
+                <table>
+
+                    <tr>
+                        <td>
+                            <div id="card_container">
+                                <div id="card" class="demo_div">
+                                    <div class="front face">
+                                        <p>Press</p>
+                                    </div>
+                                    <div class="back face">
+                                        <p>Release</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="flip_with_click" >
+                                <div id="click_card_container">
+                                    <div id="click_card" class="demo_div">
+                                        <div class="front face" style="line-height:50px">
+                                            <p>Front<p>
+                                            <p id="click_front">Click: 1<p>
+                                        </div> 
+                                        <div class="back face" style="line-height:50px">
+                                            <p>Back<p>
+                                            <p id="click_back">Click: 2<p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+
+
+
+                        <td>
+                            <div style="margin-left: 30px;">
+                                <div class="cube_wrap">
+                                    <div class="cube">
+                                        <div class="cube_front">front</div>
+                                        <div class="cube_back">back</div>
+                                        <div class="cube_top">top</div>
+                                        <div class="cube_bottom">bottom</div>
+                                        <div class="cube_left">left</div>
+                                        <div class="cube_right">right</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="margin-left: 50px;">
+                                <div class="cube_wrap">
+                                    <div class="cube2">
+                                        <div class="cube_front">front</div>
+                                        <div class="cube_back">back</div>
+                                        <div class="cube_top">top</div>
+                                        <div class="cube_bottom">bottom</div>
+                                        <div class="cube_left">left</div>
+                                        <div class="cube_right">right</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="margin-left: 200px; margin-top: 50px">
+                                <div id="rotate_and_fade_wrap">
+                                    <div id="rotate_and_fade">
+                                        <div>Div 1</div>
+                                        <div>Div 2</div>
+                                        <div>Div 3</div>               
+                                        <div>Div 4</div>
+                                        <div>Div 5</div>
+                                        <div>Div 6</div>
+                                        <div>Div 7</div>
+                                        <div>Div 8</div>
+                                        <div>Div 9</div>               
+                                        <div>Div 10</div>
+                                        <div>Div 11</div>
+                                        <div>The End</div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="margin-left: 200px;margin-top: 200px" class="demo_div ripable">
+                                    <p>Click</p>
+                            </div>
+                            
+                            
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="border" style="width:800px; height:500px">
+                <div class="with_box_shadow demo_div">Shadow</div>        
+            </div>
+        </div>
+
+
+    </body>
 </html>

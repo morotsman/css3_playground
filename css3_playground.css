@@ -453,9 +453,9 @@ text-shadow: 2px 2px #888888;
         text-align: center;
         margin:0px;
         transform-style: preserve-3d;
-        transition: all 1.0s linear;
+        transition: all 1.0s;
         -webkit-transform-style: preserve-3d;
-        -webkit-transition: all 1.0s linear;
+        -webkit-transition: all 1.0s;
 }
 
 .rotate_and_fade_invisible {
@@ -488,3 +488,20 @@ text-shadow: 2px 2px #888888;
 
 
 /*end rotate and fade*/
+
+/* rip */
+
+.ripable {
+    transform-style: preserve-3d;
+    transition: all 1.0s linear;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: all 1.0s linear;   
+}
+
+.rip {
+    transform: rotateY(500deg) rotateX(40deg) rotateZ(40deg) translateX(-200px) translateY(-1000px) scale(2);
+    -webkit-transform: rotateY(360deg) rotateZ(360deg) rotateX(360deg) translateX(-400px) translateY(-400px);
+}
+
+/* end rip*/
+
